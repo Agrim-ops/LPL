@@ -1102,20 +1102,123 @@
         </div>
 
         <!-- Cost Summary Cards -->
-        <div class="cost-summary-strip reveal-on-scroll delay-1">
+        <div class="cost-summary-strip reveal-on-scroll delay-1" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
           <div class="cost-box">
-            <div class="cost-box-value">Rs 44,000 to 49,000</div>
-            <div class="cost-box-label">Estimated parts cost roughly (estimates, final figure being confirmed)</div>
+            <div class="cost-box-value">₹49,430</div>
+            <div class="cost-box-label">Bill of Materials (BOM Hardware)</div>
           </div>
           <div class="cost-box">
-            <div class="cost-box-value text-amber">Rs 55,000 to 70,000</div>
-            <div class="cost-box-label">Proposed retail (an estimate, not an offer)</div>
+            <div class="cost-box-value text-cyan">₹9,000</div>
+            <div class="cost-box-label">Marketing &amp; Acquisition (CAC per unit)</div>
+          </div>
+          <div class="cost-box">
+            <div class="cost-box-value">₹84,737</div>
+            <div class="cost-box-label">Base Ex-Tax Selling Price (Pre-GST)</div>
+          </div>
+          <div class="cost-box">
+            <div class="cost-box-value text-amber">₹99,990</div>
+            <div class="cost-box-label">Consumer MRP (Incl. 18% GST ₹15,253)</div>
           </div>
         </div>
 
-        <div class="text-center reveal-on-scroll delay-2" style="margin-top:1.5rem;">
+        <!-- Detailed Selling Price Breakdown -->
+        <div class="hud-panel reveal-on-scroll delay-2" style="margin-top:2rem;background:rgba(6,10,18,0.85);">
+          <div class="hud-brackets"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
+            <h3 style="font-size:1.15rem;color:var(--text-white);margin-bottom:0;">Full Selling Price &amp; Profit Distribution Breakdown</h3>
+            <span class="badge badge-unique">Indian Tax &amp; Pilot Payroll Model</span>
+          </div>
+          <div class="table-responsive" style="margin-bottom:0;border:none;">
+            <table class="hud-table" style="min-width:600px;font-size:0.875rem;">
+              <thead>
+                <tr>
+                  <th scope="col">Cost Element</th>
+                  <th scope="col">Amount (₹)</th>
+                  <th scope="col">% of Base Price</th>
+                  <th scope="col">Operational Role / Justification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Bill of Materials (BOM)</strong></td>
+                  <td>₹49,430</td>
+                  <td>58.3%</td>
+                  <td>Pi 5, cameras, ultrasonics, OBD-II, 7" screen, IMU, GPS/4G</td>
+                </tr>
+                <tr>
+                  <td><strong>Assembly &amp; QC Labor</strong></td>
+                  <td>₹2,500</td>
+                  <td>2.9%</td>
+                  <td>Bench testing &amp; electronics harness assembly (Pilot Role)</td>
+                </tr>
+                <tr>
+                  <td><strong>Packaging &amp; Fasteners</strong></td>
+                  <td>₹1,500</td>
+                  <td>1.8%</td>
+                  <td>EVA molded box, 3M VHB automotive brackets, cables</td>
+                </tr>
+                <tr>
+                  <td><strong>Marketing &amp; Customer Acquisition</strong></td>
+                  <td>₹9,000</td>
+                  <td>10.6%</td>
+                  <td>Digital campaigns, creator tests, automotive forums</td>
+                </tr>
+                <tr>
+                  <td><strong>4G M2M Telemetry &amp; Cloud (Yr 1)</strong></td>
+                  <td>₹2,000</td>
+                  <td>2.4%</td>
+                  <td>Airtel/Jio IoT SIM + AWS hazard consensus servers</td>
+                </tr>
+                <tr>
+                  <td><strong>Warranty &amp; Service Reserve</strong></td>
+                  <td>₹2,000</td>
+                  <td>2.4%</td>
+                  <td>12-month free component replacement buffer (4% RMA)</td>
+                </tr>
+                <tr>
+                  <td><strong>R&amp;D Team Salary Amortization</strong></td>
+                  <td>₹3,000</td>
+                  <td>3.5%</td>
+                  <td>Embedded, CV &amp; validation engineers (Pilot Stage Roles)</td>
+                </tr>
+                <tr>
+                  <td><strong>Installer / Dealer Margin</strong></td>
+                  <td>₹4,500</td>
+                  <td>5.3%</td>
+                  <td>Auto-electrician workshop installation &amp; retail incentive</td>
+                </tr>
+                <tr style="background:rgba(63,208,201,0.06);">
+                  <td><strong class="text-cyan">Company Operating Profit (EBITDA)</strong></td>
+                  <td><strong class="text-cyan">₹10,807</strong></td>
+                  <td><strong class="text-cyan">12.8%</strong></td>
+                  <td>Retained earnings for scaling, inventory &amp; ASIC development</td>
+                </tr>
+                <tr style="font-weight:700;border-top:2px solid var(--border-hud);">
+                  <td>Base Selling Price (Pre-Tax)</td>
+                  <td>₹84,737</td>
+                  <td>100.0%</td>
+                  <td>Invoice value before statutory indirect taxes</td>
+                </tr>
+                <tr>
+                  <td>Statutory GST (18%)</td>
+                  <td>₹15,253</td>
+                  <td>18.0%</td>
+                  <td>Under HSN 8708/8526 (CGST ₹7,626.50 + SGST ₹7,626.50)</td>
+                </tr>
+                <tr style="background:rgba(242,169,0,0.08);font-size:1rem;font-weight:800;">
+                  <td style="color:var(--alert-advisory);">Final Consumer MRP</td>
+                  <td style="color:var(--alert-advisory);">₹99,990</td>
+                  <td style="color:var(--alert-advisory);">118.0%</td>
+                  <td style="color:var(--text-white);">Maximum Retail Price (All Taxes Included)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="text-center reveal-on-scroll delay-3" style="margin-top:1.5rem;">
           <p class="text-muted" style="font-size:0.875rem;">
-            <strong>Not included:</strong> SIM data, cloud hosting, assembly, installation, warranty, GST.
+            Calculated under Indian GST Law (18% on automotive safety electronics) with a 1-year warranty reserve, cloud consensus data, and certified workshop installation allowance.
           </p>
         </div>
       </div>
@@ -1149,7 +1252,7 @@
                 <td>Rs 0 (as-is)</td>
                 <td>From ~Rs 9,000 at launch</td>
                 <td>Rs 12 Lakh to 35 Lakh+ (entire vehicle)</td>
-                <td class="highlight-col">Proposed ~Rs 55k–70k (kit estimate)</td>
+                <td class="highlight-col">Proposed ₹84,737 pre-tax (MRP ₹99,990 incl. GST)</td>
               </tr>
               <tr>
                 <td><strong>Warnings Offered</strong></td>
@@ -1756,9 +1859,9 @@
             </ul>
 
             <div class="compat-price-box">
-              <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:0.25rem;">Unit Pricing</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:0.25rem;">Unit Pricing (Inclusive of Taxes)</div>
               <div id="compat-price-display" style="font-size:1.05rem;font-weight:700;">
-                <span class="text-cyan">Price: Cost to be confirmed by team</span>
+                <span class="text-cyan" style="font-size:1.15rem;font-weight:700;">₹99,990</span> <span style="font-size:0.8125rem;color:var(--text-muted);">(Base ₹84,737 + 18% GST)</span>
               </div>
             </div>
 
