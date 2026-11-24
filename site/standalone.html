@@ -1247,12 +1247,30 @@ hr {
 
 .hotspot-point {
   cursor: pointer;
-  transition: transform var(--transition-fast);
+  outline: none;
 }
 
-.hotspot-point:hover,
-.hotspot-point.active {
-  transform: scale(1.25);
+.hotspot-point circle {
+  transition: stroke 0.2s ease, stroke-width 0.2s ease, fill 0.2s ease;
+}
+
+.hotspot-point:hover circle.outer-ring,
+.hotspot-point.active circle.outer-ring {
+  stroke: #3FD0C9 !important;
+  stroke-width: 3px !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 8px rgba(63, 208, 201, 0.8));
+}
+
+.hotspot-point.active circle:not(.outer-ring) {
+  fill: #3FD0C9 !important;
+  stroke: #FFFFFF !important;
+  stroke-width: 2px !important;
+}
+
+.hotspot-point.active text {
+  fill: #060A12 !important;
+  font-weight: 900 !important;
 }
 
 .hotspot-point circle.outer-ring {
@@ -5164,6 +5182,35 @@ function initHudEffects() {
       }
     });
   }
+
+  // 6. Smooth In-Page Anchor Navigation (Prevents iframe / tab reload in Streamlit Cloud)
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault(); // Prevents URL hash change / iframe reload in Streamlit!
+
+        const header = document.querySelector('.site-header');
+        const headerOffset = header ? header.offsetHeight : 72;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + (window.pageYOffset || document.documentElement.scrollTop) - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+
+        // Close mobile drawer if open
+        if (drawer && drawer.classList.contains('open')) {
+          drawer.classList.remove('open');
+          if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
 }
 
 

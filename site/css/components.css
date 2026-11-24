@@ -445,12 +445,30 @@
 
 .hotspot-point {
   cursor: pointer;
-  transition: transform var(--transition-fast);
+  outline: none;
 }
 
-.hotspot-point:hover,
-.hotspot-point.active {
-  transform: scale(1.25);
+.hotspot-point circle {
+  transition: stroke 0.2s ease, stroke-width 0.2s ease, fill 0.2s ease;
+}
+
+.hotspot-point:hover circle.outer-ring,
+.hotspot-point.active circle.outer-ring {
+  stroke: #3FD0C9 !important;
+  stroke-width: 3px !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 8px rgba(63, 208, 201, 0.8));
+}
+
+.hotspot-point.active circle:not(.outer-ring) {
+  fill: #3FD0C9 !important;
+  stroke: #FFFFFF !important;
+  stroke-width: 2px !important;
+}
+
+.hotspot-point.active text {
+  fill: #060A12 !important;
+  font-weight: 900 !important;
 }
 
 .hotspot-point circle.outer-ring {

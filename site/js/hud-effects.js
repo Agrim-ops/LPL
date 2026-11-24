@@ -117,4 +117,33 @@ export function initHudEffects() {
       }
     });
   }
+
+  // 6. Smooth In-Page Anchor Navigation (Prevents iframe / tab reload in Streamlit Cloud)
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault(); // Prevents URL hash change / iframe reload in Streamlit!
+
+        const header = document.querySelector('.site-header');
+        const headerOffset = header ? header.offsetHeight : 72;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + (window.pageYOffset || document.documentElement.scrollTop) - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+
+        // Close mobile drawer if open
+        if (drawer && drawer.classList.contains('open')) {
+          drawer.classList.remove('open');
+          if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
 }
