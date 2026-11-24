@@ -145,7 +145,7 @@ export function initBuyMenu() {
         `- Vehicle: ${brand} ${model}\n` +
         `- Manufacturing Year: ${year}\n` +
         `- Status: 100% Compatible\n` +
-        `- Unit Price: ₹99,990 (MRP All Taxes Incl.)\n\n` +
+        `- Unit Price: ₹59,990 (MRP All Taxes Incl.)\n\n` +
         `I would like to place an order / reserve a Drive Shield Retrofit Kit.\n` +
         `Please confirm my reservation and coordinate shipping/installation.\n\n` +
         `Thank you!`
@@ -153,7 +153,7 @@ export function initBuyMenu() {
       orderBtn.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
 
       if (priceDisplay) {
-        priceDisplay.innerHTML = `<span class="text-cyan" style="font-size:1.15rem;font-weight:700;">₹99,990</span> <span style="font-size:0.8125rem;color:var(--text-muted);">(Base ₹84,737 + 18% GST)</span>`;
+        priceDisplay.innerHTML = `<span class="text-cyan" style="font-size:1.15rem;font-weight:700;">₹59,990</span> <span style="font-size:0.8125rem;color:var(--text-muted);">(Base ₹50,839 + 18% GST)</span>`;
       }
 
     } else if (status === 'CONDITIONAL') {
@@ -175,13 +175,13 @@ export function initBuyMenu() {
         `Hello Team 6 / Drive Shield,\n\n` +
         `I checked compatibility for my ${brand} ${model} (${year}).\n` +
         `It has conditional OBD-II status. I would like assistance confirming port pinouts and placing an order.\n` +
-        `- Target Price: ₹99,990 (MRP All Taxes Incl.)\n\n` +
+        `- Target Price: ₹59,990 (MRP All Taxes Incl.)\n\n` +
         `Please contact me with hardware inspection and order options.`
       );
       orderBtn.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
 
       if (priceDisplay) {
-        priceDisplay.innerHTML = `<span class="text-amber" style="font-size:1.15rem;font-weight:700;">₹99,990</span> <span style="font-size:0.8125rem;color:var(--text-muted);">(Pre-order pending port check)</span>`;
+        priceDisplay.innerHTML = `<span class="text-amber" style="font-size:1.15rem;font-weight:700;">₹59,990</span> <span style="font-size:0.8125rem;color:var(--text-muted);">(Pre-order pending port check)</span>`;
       }
 
     } else {
