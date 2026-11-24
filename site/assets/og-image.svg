@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04070D" />
+      <stop offset="50%" stop-color="#060A12" />
+      <stop offset="100%" stop-color="#0A1420" />
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3FD0C9" />
+      <stop offset="100%" stop-color="#76A8B4" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(120, 200, 210, 0.08)" stroke-width="1" />
+    </pattern>
+    <filter id="neon" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.6" />
+
+  <!-- Outer HUD Corner Brackets -->
+  <path d="M 40 80 L 40 40 L 80 40" fill="none" stroke="#3FD0C9" stroke-width="2" />
+  <path d="M 1120 40 L 1160 40 L 1160 80" fill="none" stroke="#3FD0C9" stroke-width="2" />
+  <path d="M 40 550 L 40 590 L 80 590" fill="none" stroke="#3FD0C9" stroke-width="2" />
+  <path d="M 1120 590 L 1160 590 L 1160 550" fill="none" stroke="#3FD0C9" stroke-width="2" />
+
+  <!-- Top Status Bar -->
+  <text x="80" y="75" font-family="'JetBrains Mono', monospace" font-size="14" fill="#3FD0C9" letter-spacing="2">SYS_STATUS: SIMULATION_ACTIVE // COLLEGE PROJECT CONCEPT</text>
+  <text x="1120" y="75" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="14" fill="#8FA6B2">SAE LEVEL 0 // WARNING ONLY</text>
+
+  <!-- Center-Left: Branding & Title -->
+  <g transform="translate(80, 150)">
+    <!-- Shield Icon -->
+    <path d="M 30 0 L 60 12 C 60 45 30 70 30 70 C 30 70 0 45 0 12 Z" fill="rgba(63, 208, 201, 0.12)" stroke="#3FD0C9" stroke-width="2.5" filter="url(#neon)" />
+    <text x="80" y="38" font-family="'Space Grotesk', sans-serif" font-size="44" font-weight="700" fill="#E6F1F5" letter-spacing="4">DRIVE <tspan fill="#3FD0C9">SHIELD</tspan></text>
+    <text x="80" y="65" font-family="'JetBrains Mono', monospace" font-size="15" fill="#76A8B4" letter-spacing="2">RETROFIT DRIVER-ASSISTANCE KIT CONCEPT</text>
+
+    <!-- Main Headline -->
+    <text x="0" y="150" font-family="'Space Grotesk', sans-serif" font-size="42" font-weight="700" fill="#FFFFFF">
+      Warnings for the cars that never got them.
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="200" font-family="'Inter', sans-serif" font-size="20" fill="#8FA6B2">
+      A concept retrofit kit designed for older Indian cars (10–13 years old).
+    </text>
+    <text x="0" y="232" font-family="'Inter', sans-serif" font-size="20" fill="#8FA6B2">
+      Adds driver-assistance warnings without replacing the vehicle.
+    </text>
+
+    <!-- Disclaimer Chip -->
+    <rect x="0" y="275" width="560" height="55" rx="8" fill="rgba(242, 169, 0, 0.1)" stroke="rgba(242, 169, 0, 0.4)" stroke-width="1.5" />
+    <text x="20" y="300" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#F2A900">
+      COLLEGE PROJECT CONCEPT • DESIGN &amp; SIMULATION ONLY
+    </text>
+    <text x="20" y="318" font-family="'Inter', sans-serif" font-size="12" fill="#E6F1F5">
+      Team 6, LPL, NIIT University • Not for sale • Never brakes or steers
+    </text>
+  </g>
+
+  <!-- Right: Top-down HUD Car Wireframe with Sensor Cones -->
+  <g transform="translate(860, 310)">
+    <!-- Radar pulses -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="rgba(63, 208, 201, 0.1)" stroke-width="1" stroke-dasharray="4 4" />
+    <circle cx="0" cy="0" r="200" fill="none" stroke="rgba(63, 208, 201, 0.08)" stroke-width="1" stroke-dasharray="6 6" />
+
+    <!-- Front Camera Cone (pointing UP) -->
+    <polygon points="0,-70 -130,-220 130,-220" fill="rgba(63, 208, 201, 0.12)" stroke="#3FD0C9" stroke-width="1" stroke-dasharray="3 3" />
+    <text x="0" y="-170" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#3FD0C9">FRONT CAM 120°</text>
+
+    <!-- Rear Camera Cone (pointing DOWN) -->
+    <polygon points="0,70 -110,190 110,190" fill="rgba(63, 208, 201, 0.08)" stroke="#76A8B4" stroke-width="1" stroke-dasharray="3 3" />
+
+    <!-- Ultrasonic arcs -->
+    <path d="M -45 -70 A 30 30 0 0 0 -75 -40" fill="none" stroke="#2ECC71" stroke-width="2" />
+    <path d="M 45 -70 A 30 30 0 0 1 75 -40" fill="none" stroke="#2ECC71" stroke-width="2" />
+    <path d="M -45 70 A 30 30 0 0 1 -75 40" fill="none" stroke="#2ECC71" stroke-width="2" />
+    <path d="M 45 70 A 30 30 0 0 0 75 40" fill="none" stroke="#2ECC71" stroke-width="2" />
+
+    <!-- Car Body Shape -->
+    <rect x="-42" y="-75" width="84" height="150" rx="16" fill="#0C1B26" stroke="#3FD0C9" stroke-width="2" filter="url(#neon)" />
+    <!-- Windshield & Glass -->
+    <path d="M -32 -30 L -25 -52 L 25 -52 L 32 -30 Z" fill="rgba(63, 208, 201, 0.3)" />
+    <path d="M -30 25 L -24 45 L 24 45 L 30 25 Z" fill="rgba(63, 208, 201, 0.2)" />
+    <rect x="-26" y="-22" width="52" height="42" rx="4" fill="#060A12" stroke="rgba(63, 208, 201, 0.4)" stroke-width="1" />
+
+    <!-- Wheels -->
+    <rect x="-48" y="-55" width="8" height="24" rx="2" fill="#3FD0C9" opacity="0.8" />
+    <rect x="40" y="-55" width="8" height="24" rx="2" fill="#3FD0C9" opacity="0.8" />
+    <rect x="-48" y="32" width="8" height="24" rx="2" fill="#3FD0C9" opacity="0.8" />
+    <rect x="40" y="32" width="8" height="24" rx="2" fill="#3FD0C9" opacity="0.8" />
+
+    <!-- Center Sensor Hub -->
+    <circle cx="0" cy="0" r="5" fill="#3FD0C9" />
+  </g>
+
+  <!-- Bottom Details -->
+  <line x1="80" y1="570" x2="1120" y2="570" stroke="rgba(120, 200, 210, 0.2)" stroke-width="1" />
+  <text x="80" y="598" font-family="'JetBrains Mono', monospace" font-size="12" fill="#8FA6B2">INPUTS: 2 CAMERAS // 4 ULTRASONIC // OBD-II SPEED // 4G+GPS // MOTION</text>
+  <text x="1120" y="598" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="12" fill="#8FA6B2">NIIT UNIVERSITY • LEARNERS' PREMIER LEAGUE 2026-27</text>
+</svg>

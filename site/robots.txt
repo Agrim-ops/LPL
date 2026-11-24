@@ -1,0 +1,5 @@
+# robots.txt for Drive Shield Concept Site
+User-agent: *
+Allow: /
+
+Sitemap: https://drive-shield.onrender.com/sitemap.xml

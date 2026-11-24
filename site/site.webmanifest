@@ -1,0 +1,17 @@
+{
+  "name": "Drive Shield - Retrofit Driver-Assistance Kit Concept",
+  "short_name": "Drive Shield",
+  "description": "A retrofit driver-assistance kit concept for older cars. College project concept by Team 6, NIIT University.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060A12",
+  "theme_color": "#3FD0C9",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

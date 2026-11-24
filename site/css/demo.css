@@ -1,0 +1,485 @@
+/**
+ * Drive Shield Interactive Simulation Demo Styles
+ */
+
+.demo-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-container {
+  background: #020408;
+  border: 1px solid var(--border-hud-bright);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(63, 208, 201, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Simulation Disclaimer Bar */
+.demo-disclaimer-strip {
+  background: rgba(242, 169, 0, 0.12);
+  border-bottom: 1px solid rgba(242, 169, 0, 0.3);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.8125rem;
+  color: #FFFFFF;
+}
+
+.demo-disclaimer-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+}
+
+.demo-disclaimer-text strong {
+  color: var(--alert-advisory);
+}
+
+.demo-level-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--alert-critical);
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Scenario Switcher Tabs */
+.demo-scenario-bar {
+  display: flex;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-hud);
+  overflow-x: auto;
+}
+
+.scenario-btn {
+  flex: 1;
+  min-width: 240px;
+  padding: 0.875rem 1.25rem;
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.scenario-btn:hover {
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.scenario-btn.active {
+  color: var(--brand-cyan);
+  background: rgba(63, 208, 201, 0.08);
+  border-bottom-color: var(--brand-cyan);
+}
+
+/* 16:9 Main Simulation Stage */
+.simulation-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 440px;
+  max-height: 620px;
+  display: flex;
+  flex-direction: column;
+  background: #060A12;
+  border-bottom: 1px solid var(--border-hud);
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .simulation-stage {
+    aspect-ratio: auto;
+    min-height: 520px;
+  }
+}
+
+/* TOP 60%: Road Canvas / Viewport */
+.sim-road-viewport {
+  position: relative;
+  height: 60%;
+  width: 100%;
+  overflow: hidden;
+  background: #080D17;
+  border-bottom: 1px solid rgba(120, 200, 210, 0.2);
+}
+
+#road-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* HUD Overlay on Road */
+.road-hud-telemetry {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  display: flex;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  pointer-events: none;
+  background: rgba(6, 10, 18, 0.7);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(120, 200, 210, 0.2);
+}
+
+.road-hud-telemetry span strong {
+  color: var(--brand-cyan);
+}
+
+.road-hud-ttc-box {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: rgba(6, 10, 18, 0.8);
+  border: 1px solid rgba(120, 200, 210, 0.3);
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  text-align: right;
+  pointer-events: none;
+}
+
+.road-hud-ttc-val {
+  font-weight: 700;
+  color: var(--brand-cyan);
+}
+
+.road-hud-ttc-note {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+
+/* BOTTOM 35%: 7-Inch In-Car Driver Display */
+.sim-display-viewport {
+  position: relative;
+  height: 40%;
+  width: 100%;
+  background: #030508;
+  padding: 10px 14px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.in-car-screen {
+  width: 100%;
+  max-width: 680px;
+  height: 100%;
+  background: #000000;
+  border: 2px solid #1A2836;
+  border-radius: var(--radius-md);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 16px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 0, 0, 0.8);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  overflow: hidden;
+}
+
+/* In-car display states */
+.in-car-screen.state-all-clear {
+  border-color: rgba(46, 204, 113, 0.35);
+  box-shadow: inset 0 0 15px rgba(46, 204, 113, 0.1);
+}
+
+.in-car-screen.state-caution {
+  border-color: rgba(242, 169, 0, 0.6);
+  box-shadow: inset 0 0 25px rgba(242, 169, 0, 0.2), 0 0 16px rgba(242, 169, 0, 0.25);
+}
+
+.in-car-screen.state-warning {
+  border-color: #FF3B30;
+  box-shadow: inset 0 0 35px rgba(255, 59, 48, 0.35), 0 0 24px rgba(255, 59, 48, 0.4);
+  animation: hud-flash 0.4s infinite alternate ease-in-out;
+}
+
+@keyframes hud-flash {
+  from {
+    background-color: #000000;
+    border-color: #FF3B30;
+  }
+  to {
+    background-color: rgba(255, 59, 48, 0.18);
+    border-color: #FFA39E;
+  }
+}
+
+.screen-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 4px;
+}
+
+.screen-top-title {
+  color: var(--brand-secondary);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.screen-main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 1.25rem;
+  padding: 4px 0;
+}
+
+.screen-icon-container {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.screen-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.screen-primary-alert {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.screen-secondary-alert {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.screen-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 4px;
+}
+
+/* Secondary Hidden Alert Chip (Priority Encoder) */
+.secondary-alert-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #D1DCE5;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.secondary-alert-chip.hidden {
+  display: none;
+}
+
+/* Parking Mode In-Car Display Specifics */
+.parking-meter-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.parking-bar-track {
+  flex: 1;
+  height: 12px;
+  background: #111A24;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(120, 200, 210, 0.2);
+}
+
+.parking-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--alert-safe);
+  transition: width var(--transition-fast), background-color var(--transition-fast);
+}
+
+.parking-big-distance {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--brand-cyan);
+  min-width: 90px;
+  text-align: right;
+}
+
+.parking-big-distance.stop {
+  color: var(--alert-critical);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+/* Plain-words Caption Box with ARIA Live Region */
+.demo-caption-bar {
+  background: rgba(10, 18, 28, 0.85);
+  border-bottom: 1px solid var(--border-hud);
+  padding: 0.75rem 1.25rem;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.demo-caption-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-cyan);
+  box-shadow: 0 0 8px var(--brand-cyan);
+  flex-shrink: 0;
+}
+
+.demo-caption-text {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--text-white);
+  line-height: 1.4;
+}
+
+/* Demo Control Bar */
+.demo-controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 1.25rem;
+  background: rgba(6, 10, 18, 0.9);
+}
+
+.demo-playback-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ctrl-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hud);
+  color: var(--text-main);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.ctrl-btn:hover {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+}
+
+.ctrl-btn.active {
+  background: rgba(63, 208, 201, 0.15);
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan);
+}
+
+.demo-speed-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.speed-chip {
+  padding: 0.25rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.speed-chip.active {
+  background: var(--brand-cyan);
+  color: var(--bg-deep);
+  border-color: var(--brand-cyan);
+  font-weight: 700;
+}
+
+.demo-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-label input[type="checkbox"] {
+  accent-color: var(--brand-cyan);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Keyboard Hints Footer inside Demo */
+.demo-shortcuts-bar {
+  background: rgba(3, 5, 8, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.45rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.demo-shortcuts-bar kbd {
+  font-size: 0.6875rem;
+}

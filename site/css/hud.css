@@ -1,0 +1,215 @@
+/**
+ * Drive Shield Futuristic HUD Aesthetics & Visual Effects
+ */
+
+/* Background Particle Canvas */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Sci-Fi Perspective Grid & Road Lines Background */
+.hud-grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image: 
+    linear-gradient(to right, rgba(120, 200, 210, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(120, 200, 210, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center center;
+}
+
+/* Perspective horizon line in hero */
+.hero-perspective-ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 10, 18, 0.95) 100%),
+              repeating-linear-gradient(90deg, rgba(63, 208, 201, 0.04) 0px, rgba(63, 208, 201, 0.04) 1px, transparent 1px, transparent 80px);
+  transform: perspective(400px) rotateX(45deg);
+  transform-origin: bottom center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Faint Scanline Overlay */
+.scanline-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  opacity: 0.4;
+}
+
+/* Hero Section Special Styling */
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+.hero-title {
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.hero-title .gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 30%, var(--brand-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.125rem, 2vw, 1.35rem);
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 620px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Hero Wireframe Car & Pulsing Sensor Cones */
+.hero-car-stage {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-car-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 25px rgba(63, 208, 201, 0.25));
+}
+
+/* Pulsing Cones Animations */
+@keyframes cone-pulse-front {
+  0% { opacity: 0.25; transform: scale(0.97); }
+  50% { opacity: 0.6; transform: scale(1.02); }
+  100% { opacity: 0.25; transform: scale(0.97); }
+}
+
+@keyframes cone-pulse-rear {
+  0% { opacity: 0.2; transform: scale(0.98); }
+  50% { opacity: 0.45; transform: scale(1.02); }
+  100% { opacity: 0.2; transform: scale(0.98); }
+}
+
+@keyframes ultrasonic-wave {
+  0% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: -20; opacity: 0.2; }
+}
+
+.cone-front {
+  transform-origin: 200px 140px;
+  animation: cone-pulse-front 3s infinite ease-in-out;
+}
+
+.cone-rear {
+  transform-origin: 200px 380px;
+  animation: cone-pulse-rear 3s infinite ease-in-out 1.5s;
+}
+
+.ultrasonic-arc {
+  animation: ultrasonic-wave 1.5s infinite linear;
+}
+
+/* Scroll Reveal Animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay classes */
+.delay-1 { transition-delay: 100ms; }
+.delay-2 { transition-delay: 200ms; }
+.delay-3 { transition-delay: 300ms; }
+.delay-4 { transition-delay: 400ms; }
+
+/* Accessible Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  #particles-canvas {
+    display: none !important;
+  }
+
+  .scanline-overlay {
+    display: none !important;
+  }
+
+  .cone-front,
+  .cone-rear,
+  .ultrasonic-arc,
+  .hotspot-point circle.outer-ring,
+  .in-car-screen.state-warning {
+    animation: none !important;
+  }
+
+  .tilt-card {
+    transform: none !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
