@@ -36,6 +36,7 @@ js_files = [
     "js/sensor-hotspots.js",
     "js/filter-grid.js",
     "js/accordion.js",
+    "js/buy-menu.js",
     "js/main.js",
 ]
 

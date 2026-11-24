@@ -11,6 +11,7 @@ import { initSensorHotspots } from './sensor-hotspots.js';
 import { initFilterGrid } from './filter-grid.js';
 import { initAccordion } from './accordion.js';
 import { initSimulationDemo } from './demo/controller.js';
+import { initBuyMenu } from './buy-menu.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Bind Contact Email to all mailto links
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFilterGrid();
   initAccordion();
   initSimulationDemo();
+  initBuyMenu();
 
   console.log(`[${SITE_METADATA.name}] initialized. Stage: ${SITE_METADATA.stage}`);
 });

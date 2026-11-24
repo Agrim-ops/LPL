@@ -57,6 +57,7 @@ drive-shield/
     │   ├── sensor-hotspots.js# Interactive top-down car mounting map (9 hotspots)
     │   ├── filter-grid.js    # 18-feature warning catalog filter
     │   ├── accordion.js      # Keyboard accessible FAQ accordion
+    │   ├── buy-menu.js       # Vehicle compatibility checker & Buy Now ordering menu
     │   └── demo/
     │       ├── audio.js      # Web Audio API sound synthesis (starts only on user click)
     │       ├── engine.js     # Simulation timeline, linear interpolation, auto-pause
