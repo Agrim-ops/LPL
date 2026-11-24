@@ -48,12 +48,12 @@
   <div class="hud-grid-background" aria-hidden="true"></div>
   <div class="scanline-overlay" aria-hidden="true"></div>
 
-  <!-- 1. Mandatory Top Concept Disclaimer Banner -->
+  <!-- 1. Top Concept Disclaimer Banner -->
   <aside class="disclaimer-banner" aria-label="Project stage disclaimer">
     <div class="container">
       <span class="disclaimer-badge">Concept Stage</span>
       <span>
-        <strong>Notice:</strong> Drive Shield is a college project concept (design and simulation stage). Not for sale. Not a certified safety device. It only warns; the driver stays responsible.
+        <strong>Notice:</strong> Drive Shield is a college project concept (design and simulation stage). Not for sale. Not a certified safety device. The driver stays responsible.
       </span>
     </div>
   </aside>
@@ -62,12 +62,7 @@
   <header class="site-header">
     <div class="container">
       <a href="#hero" class="nav-brand" aria-label="Drive Shield Homepage">
-        <svg class="brand-shield-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M32 4 L56 12 C56 36 32 58 32 58 C32 58 8 36 8 12 Z" fill="rgba(63, 208, 201, 0.12)" stroke="#3FD0C9" stroke-width="3" />
-          <path d="M26 27 Q32 25 38 27 L40 34 L24 34 Z" fill="#E6F1F5" />
-          <path d="M24 36 L40 36 L42 44 Q32 46 22 44 Z" fill="#3FD0C9" />
-          <circle cx="32" cy="18" r="3" fill="#3FD0C9" />
-        </svg>
+        <img src="assets/logo.png" alt="Drive Shield Logo" class="brand-logo-img">
         <div class="brand-text-group">
           <span>DRIVE <span class="text-cyan">SHIELD</span></span>
           <span class="nav-tagline">Team 6 • NIIT University</span>
@@ -75,15 +70,14 @@
       </a>
 
       <nav class="nav-menu" aria-label="Primary navigation">
-        <a href="#problem" class="nav-link">The Problem</a>
+        <a href="#problem" class="nav-link">Problem</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
-        <a href="#demo" class="nav-link">Interactive Demo</a>
+        <a href="#demo" class="nav-link">Simulation</a>
         <a href="#features" class="nav-link">Warnings</a>
-        <a href="#alert-levels" class="nav-link">Alert Levels</a>
+        <a href="#alert-levels" class="nav-link">Alerts</a>
         <a href="#hardware" class="nav-link">Mounting</a>
         <a href="#cost" class="nav-link">Parts &amp; Cost</a>
         <a href="#compare" class="nav-link">Comparison</a>
-        <a href="#limits" class="nav-link">Limits</a>
         <a href="#faq" class="nav-link">FAQ</a>
         <a href="#team" class="nav-link">Team</a>
       </nav>
@@ -141,16 +135,6 @@
             <a href="#how-it-works" class="btn btn-secondary">
               How it works
             </a>
-          </div>
-          <div class="sae-strip">
-            <svg class="sae-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="8" x2="12" y2="12"/>
-              <line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
-            <div>
-              <strong>Advisory Kit Concept:</strong> Warning only. Never brakes or steers (SAE Level 0).
-            </div>
           </div>
         </div>
 
@@ -321,18 +305,6 @@
             </ul>
           </div>
         </div>
-
-        <!-- Strict Honesty Red Strip -->
-        <div class="sae-strip reveal-on-scroll delay-4" style="margin-top:2.5rem;">
-          <svg class="sae-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-            <line x1="12" y1="9" x2="12" y2="13"/>
-            <line x1="12" y1="17" x2="12.01" y2="17"/>
-          </svg>
-          <div>
-            <strong>Strict Scope Rule:</strong> Warning only. Never brakes or steers (SAE Level 0).
-          </div>
-        </div>
       </div>
     </section>
 
@@ -353,7 +325,7 @@
           <div class="demo-disclaimer-strip">
             <div class="demo-disclaimer-text">
               <span>⚠️</span>
-              <span><strong>SIMULATION:</strong> made-up scenario, not a real drive. Warning only: the system never brakes or steers.</span>
+              <span><strong>SIMULATION:</strong> made-up scenario, not a real drive. Client-side interactive demonstration.</span>
             </div>
             <div class="demo-level-tag">SAE Level 0</div>
           </div>
@@ -657,7 +629,7 @@
             <div class="hud-panel feature-card tilt-card">
               <div class="hud-brackets"></div>
               <div class="feature-card-header">
-                <h3 class="feature-title">Lane-Change Assist (Warns Only)</h3>
+                <h3 class="feature-title">Lane-Change Assist</h3>
                 <span class="badge badge-critical">Critical</span>
               </div>
               <p class="feature-desc">
@@ -1282,7 +1254,7 @@
         <div class="grid-2">
           <div class="hud-panel limit-card reveal-on-scroll delay-1">
             <div class="hud-brackets"></div>
-            <h3 style="color:#FF3B30;margin-bottom:0.5rem;">Warns Only: You Stay in Control</h3>
+            <h3 style="color:#FF3B30;margin-bottom:0.5rem;">Driver Authority: You Stay in Control</h3>
             <p class="text-muted">
               Drive Shield is an SAE Level 0 advisory concept. It never brakes the wheels and never steers the vehicle. The human driver remains 100% responsible for driving at all times.
             </p>
@@ -1366,7 +1338,7 @@
             <div class="badge badge-unique" style="margin-bottom:0.75rem;">Phase 4 // Monitoring</div>
             <h3 style="font-size:1.25rem;margin-bottom:0.5rem;color:var(--text-white);">Driver-Fatigue Warning</h3>
             <p class="text-muted" style="font-size:0.9375rem;">
-              Explore an optional cabin-facing camera to advise drowsy drivers when micro-sleep or eyelid closure is detected (warn only, with consent).
+              Explore an optional cabin-facing camera to advise drowsy drivers when micro-sleep or eyelid closure is detected (with driver consent).
             </p>
           </div>
 
@@ -1683,40 +1655,38 @@
 
   <!-- 16. FOOTER -->
   <footer class="site-footer">
-    <!-- Mandatory Bottom Concept Disclaimer Banner -->
+    <!-- Bottom Concept Disclaimer Banner -->
     <aside class="disclaimer-banner" aria-label="Footer project stage disclaimer" style="margin-bottom:2.5rem;border-left:none;border-right:none;">
       <div class="container">
         <span class="disclaimer-badge">Concept Stage</span>
         <span>
-          <strong>Notice:</strong> Drive Shield is a college project concept (design and simulation stage). Not for sale. Not a certified safety device. It only warns; the driver stays responsible.
+          <strong>Notice:</strong> Drive Shield is a college project concept (design and simulation stage). Not for sale. Not a certified safety device. The driver stays responsible.
         </span>
       </div>
     </aside>
 
     <div class="container">
-      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2rem;">
-        <div>
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
-            <svg class="brand-shield-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M32 4 L56 12 C56 36 32 58 32 58 C32 58 8 36 8 12 Z" fill="rgba(63, 208, 201, 0.12)" stroke="#3FD0C9" stroke-width="3" />
-              <circle cx="32" cy="18" r="3" fill="#3FD0C9" />
-            </svg>
-            <span style="font-family:var(--font-heading);font-weight:700;font-size:1.35rem;color:var(--text-white);">
-              DRIVE <span class="text-cyan">SHIELD</span>
-            </span>
+      <div class="footer-main-grid">
+        <div class="footer-brand-column">
+          <div class="footer-brand-header">
+            <img src="assets/logo.png" alt="Drive Shield Logo" class="footer-logo-img">
+            <div>
+              <span class="footer-brand-title">DRIVE <span class="text-cyan">SHIELD</span></span>
+              <span class="nav-tagline">Team 6 • NIIT University</span>
+            </div>
           </div>
-          <p class="text-muted" style="max-width:440px;font-size:0.875rem;line-height:1.6;">
-            A college project concept by Team 6 for the Learners' Premier League (LPL 2026-27), NIIT University. Retrofit driver-assistance warnings for older Indian cars.
+          <p class="text-muted footer-brand-desc">
+            A college project concept by Team 6 for the Learners' Premier League (LPL 2026-27), NIIT University. Retrofit driver-assistance for older Indian cars.
           </p>
         </div>
 
-        <div style="font-family:var(--font-mono);font-size:0.875rem;">
-          <div class="text-cyan" style="font-weight:700;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.1em;">Contact Inquiries</div>
-          <p class="text-muted" style="margin-bottom:0.5rem;font-size:0.8125rem;">
+        <div class="footer-contact-column">
+          <div class="text-cyan footer-contact-title">Contact Inquiries</div>
+          <p class="text-muted footer-contact-desc">
             For academic queries or concept feedback:
           </p>
-          <a href="mailto:agrimgoel14@gmail.com" class="contact-email-link show-email-text btn btn-secondary btn-sm">
-            agrimgoel14@gmail.com
+          <a href="mailto:driveshield06@gmail.com" class="contact-email-link show-email-text btn btn-secondary btn-sm">
+            driveshield06@gmail.com
           </a>
         </div>
       </div>

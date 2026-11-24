@@ -75,7 +75,7 @@ drive-shield/
 
 | Item to Change | File Location | How to Edit |
 |---|---|---|
-| **Contact Email** | `site/js/config.js` | Change `export const CONTACT_EMAIL = 'contact@example.com';` to your actual address. |
+| **Contact Email** | `site/js/config.js` | Configured as `export const CONTACT_EMAIL = 'driveshield06@gmail.com';`. |
 | **Email Subject** | `site/js/config.js` | Change `export const CONTACT_MAILTO_SUBJECT = '...';`. |
 | **Project Copy** | `site/index.html` | Organized by semantic `<section>` tags (e.g. `#problem`, `#how-it-works`, `#cost`, `#faq`). |
 | **Design Tokens** | `site/css/tokens.css` | Edit root CSS custom properties (`--brand-cyan`, `--alert-critical`, etc.). |

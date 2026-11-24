@@ -66,6 +66,14 @@ full_js = "\n\n".join(combined_js)
 with open(INDEX_PATH, "r", encoding="utf-8") as f:
     html = f.read()
 
+# Inline logo.png as base64 data URI so it loads unconditionally in any iframe/srcdoc
+logo_path = os.path.join(BASE_DIR, "assets", "logo.png")
+if os.path.exists(logo_path):
+    import base64
+    with open(logo_path, "rb") as lf:
+        logo_b64 = base64.b64encode(lf.read()).decode("utf-8")
+    html = html.replace('src="assets/logo.png"', f'src="data:image/png;base64,{logo_b64}"')
+
 # Remove external stylesheet links
 html = re.sub(r'<link\s+rel="stylesheet"\s+href="css/[^"]+">\s*', '', html)
 
